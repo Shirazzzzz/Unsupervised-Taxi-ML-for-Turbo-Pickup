@@ -7,6 +7,7 @@ https://github.com/Shirazzzzz/Unsupervised-Taxi-ML-for-Turbo-Pickup/assets/97777
 Above video is just an example of how this project can be used.
 (For my usecase dataset the range for optimal clusters was 4 to 6)
 
+Note: use conda env
 .............................................
 Playing with Data 1 (and Visualization) (requires lat/lon type dataset) 
 .............................................

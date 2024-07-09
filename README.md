@@ -1,4 +1,4 @@
-# Urban-Mobility-Patterns-Unsupervised-Learning-Insights-from-Taxi-Data to boost Pickup and efficieny
+# Urban-Mobility-Patterns-Unsupervised-Learning-Insights-from-Taxi-Data to boost Pickup and efficiency
 
 
 

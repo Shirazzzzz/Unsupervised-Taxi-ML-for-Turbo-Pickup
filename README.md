@@ -7,9 +7,8 @@ https://github.com/Shirazzzzz/Unsupervised-Taxi-ML-for-Turbo-Pickup/assets/97777
 Above video is just an example of how this project can be used.
 (For my usecase dataset the range for optimal clusters was 4 to 6)
 
-Note: use conda env
 .............................................
-Playing with Data 1 (and Visualization) (requires lat/lon type dataset) 
+Playing with Data 1 (and Visualization) [requires lat/lon type dataset] 
 .............................................
 
 This Python script performs comprehensive analysis of ride-sharing data using pandas, seaborn, matplotlib, and folium libraries. The script begins by loading the dataset into a pandas DataFrame, checking for and counting any duplicate entries to ensure data integrity. It then displays the data types of each column for initial inspection to understand the structure of the dataset.
@@ -27,7 +26,7 @@ This 5 pm peak indicates a significant number of bookings made by individuals as
 
 
 ...................................................
-Playing with Data 2 (and Visualization) (requires Dispatch type dataset) 
+Playing with Data 2 (and Visualization) [requires Dispatch type dataset] 
 .............................................
 
 ![image](https://github.com/Shirazzzzz/Unsupervised-Taxi-ML-for-Turbo-Pickup/assets/97777320/c917963e-5da6-468a-b4f4-bd6bbf3c0259)
@@ -49,7 +48,7 @@ These visualizations help in understanding the distribution and density of activ
 
 
 .............................................
-main (requires dataset with lat/lon values) 
+main [requires dataset with lat/lon values] 
 .............................................
 
 <img width="294" alt="q6" src="https://github.com/Shirazzzzz/Unsupervised-Taxi-ML-for-Turbo-Pickup/assets/97777320/07099433-2683-49a7-9e6b-efe2dbf578b9">  <img width="286" alt="qq3" src="https://github.com/Shirazzzzz/Unsupervised-Taxi-ML-for-Turbo-Pickup/assets/97777320/fe388bc0-d7ee-4fd2-bf52-705198ddb345">

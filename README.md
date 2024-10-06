@@ -10,7 +10,7 @@ The entire geography of New York City is divided into 8 broad clusters using k-m
 Different clustering algorithms produce different types of clusters, but it is our responsibility to pick the best algorithm. But how do we do that?
 We apply different algoirthms onto our dataset and decide which one suits our needs. Every type of cluster is a cluster, but our needs define what algorithm we'll pick.
 
-<div style="text-align: center;"><img width="194" alt="image" src="https://github.com/user-attachments/assets/6ae1862f-6a06-4c78-9ced-1059e7f1a277"></div>
+<div style="align: center;"><img width="194" alt="image" src="https://github.com/user-attachments/assets/6ae1862f-6a06-4c78-9ced-1059e7f1a277"></div>
 
 The above image shows how k-means and density based algorithms treat the same dataset. Again, no cluster is inherently "bad", but the result produced by k-means is what we are looking for (when it comes to dividing the area into broad clusters).
 

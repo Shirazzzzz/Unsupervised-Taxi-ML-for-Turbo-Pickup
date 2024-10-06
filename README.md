@@ -4,8 +4,69 @@
 
 https://github.com/Shirazzzzz/Unsupervised-Taxi-ML-for-Turbo-Pickup/assets/97777320/30bc2bef-9a42-4c40-a997-6268057fd403
 
-Above video is just an example of how this project can be used.
-(For my usecase dataset the range for optimal clusters was 4 to 6)
+Above video is a hourly dynamic plot fine tuned for big companies like uber that can afford to allocate their resources across multiple clusters.
+The entire geography of New York City is divided into 8 broad clusters using k-means. 
+
+Different clustering algorithms produce different types of clusters, but it is our responsibility to pick the best algorithm. But how do we do that?
+We apply different algoirthms onto our dataset and decide which one suits our needs. Every type of cluster is a cluster, but our needs define what algorithm we'll pick.
+
+<img width="194" alt="image" src="https://github.com/user-attachments/assets/6ae1862f-6a06-4c78-9ced-1059e7f1a277">
+
+The above image shows how k-means and density based algorithms treat the same dataset. Again, no cluster is inherently "bad", but the result produced by k-means is what we are looking for (when it comes to dividing the area into broad clusters).
+
+<img width="281" alt="image" src="https://github.com/user-attachments/assets/706fc81c-f098-4edf-beb1-793dc6e967f1"> <img width="295" alt="image" src="https://github.com/user-attachments/assets/23a88dfd-e433-45bf-96e7-8469ac0c13b2">
+The graphs above show the elbow plot and silhoette score plot.
+The graphs suggest that the optimal number of k-means cluster = 2 ...
+But how is that insightful or of any use?
+Its like saying allocate 60% of cabs to North India and 40% to South India, but we need to be more specific and strike a balance between whats optimal and whats practical
+Thats why we look at the next best option which is 8. Therefore we divide the region into 8 broad clusters using k-means.
+
+
+Now that we have our broad clusters we now look for an algorithm to form clusters within each broad cluster. Refering back to the discussion on types of clusters, i realised that a density-based algorithm matches my needs ... but which one ?
+
+<img width="282" alt="image" src="https://github.com/user-attachments/assets/46e8e79f-4e56-4188-9fb8-d3060e39c454"><img width="281" alt="image" src="https://github.com/user-attachments/assets/d53e8b3e-b273-4986-ad31-21c94a6da5d3">
+HDBSCAN was chosen for this part of the project as its a better match for the needs. It is a hierarchial algorithm that makes use of Minimum Spanning Trees to form clusters.
+<img width="413" alt="image" src="https://github.com/user-attachments/assets/b7b80ee4-fd16-48c8-8fef-ca7ea5ba94a6">
+MST in HDBSCAN
+
+Next part of the project is to fine tune the parameters for the parameters for forming clusters with HDBSCAN. 
+In this part we need to address 2 issues : 1)finding better ways to fine tune the parameters, and 2) fine tuning for different needs (Small Businesses and Big Businesses)
+
+1)Binary Search on a 2D grid
+
+Fine tuning min_samples and min_size for HDBSCAN on such a large dataset was computationally expensive, so i couldnt just go about trying different values as each run took around 30 minutes. So i figured out the ranges for the both the parameters in which the most optimal clusters would lie and performed a binary search on both of them to get the most optimal clusters with log(R) attempts for each (R = range), thereby making the process efficient.
+
+2) Different types of business have different needs
+
+A small business with just 30 cabs cannot afford to allocate its cab across 27 clusters as that wont be fruitful (approx. 1 cab per cluster), so the pickup coordinates must be rounded off to a certain degree to form bigger and more general clusters, and then i picked ONLY 2 of these bigger clusters. Parameters must be manually fine tuned 
+for this.
+
+
+https://github.com/user-attachments/assets/d29fc014-391c-4c6b-8799-bebaf063881d
+
+Example: 16 cabs in North-East Delhi Region and 14 cabs in North-West Delhi Region.
+
+
+A bigger business like uber on the other hand can afford to split lets say a cab force of 40k across 27 clusters.
+
+https://github.com/user-attachments/assets/d53fa72e-4e82-4fdd-aa3e-146761a7675d
+
+For each category: Weekly and Hourly Dynamic Plots were produced + Output was also logged for better readibility.
+
+Example:
+<img width="235" alt="image" src="https://github.com/user-attachments/assets/8ab17179-b036-4880-90ed-09ca6ed5fd82"> <img width="181" alt="image" src="https://github.com/user-attachments/assets/34c6c113-a5b6-4eec-9ec5-ec739d365a50">
+
+I was also able to achieve an average cluster score of 1 (perfect) for both small and big businesses.
+
+Image 1 = Big business, Image 2 = Small Business
+
+<img width="225" alt="big business validation" src="https://github.com/user-attachments/assets/259a41ec-ebce-4714-ba0f-b1e3eb2ef5b1"> 
+<img width="218" alt="small business validation" src="https://github.com/user-attachments/assets/e5b05750-f6c3-432f-bfa7-f4862598b8a4">
+
+
+Ive described some other insights for the data below:
+
+
 
 .............................................
 Playing with Data 1 (and Visualization) [requires lat/lon type dataset] 
@@ -53,23 +114,5 @@ main [requires dataset with lat/lon values]
 
 <img width="294" alt="q6" src="https://github.com/Shirazzzzz/Unsupervised-Taxi-ML-for-Turbo-Pickup/assets/97777320/07099433-2683-49a7-9e6b-efe2dbf578b9">  <img width="286" alt="qq3" src="https://github.com/Shirazzzzz/Unsupervised-Taxi-ML-for-Turbo-Pickup/assets/97777320/fe388bc0-d7ee-4fd2-bf52-705198ddb345">
 
-Percentage of Cab Strength that must alloted to clusters at any given time of the day or day of the week to boost pickup.
 
-This code performs comprehensive data analysis and clustering on cab data, focusing on temporal and spatial patterns.
-
-Data Preprocessing
-Load and Clean Data: The dataset is loaded from cab_data.csv. The Date/Time column is converted to datetime format, and new columns for Day_of_Week and Hour are created. Unnecessary columns are dropped.
-
-Clustering and Analysis
-KMeans Clustering: A sample of 300,000 rows is standardized and clustered into 12 groups using KMeans. Cluster centers and assignments are stored.
-DBSCAN Clustering: DBSCAN is applied to identify dense regions and noise, with the percentage of noise points calculated.
-
-Optimization and Visualization
-Cluster Optimization: The optimal number of clusters is determined using the elbow method (WCSS) and silhouette scores.
-Hourly and Daily Clustering: Clusters are analyzed for each hour of the day and each day of the week. Cluster centers are reverse geocoded to identify neighborhoods.
-
-Usage
-Visualizations: The results are visualized using interactive scatter maps, showing cluster distributions across hours and days. These maps are saved as HTML files for easy sharing and analysis.
-
-This code can be used to identify temporal and spatial hotspots in cab data, helping to understand patterns and optimize cab dispatching. The visualizations provide intuitive insights into how cab demand varies over time and location.
 

@@ -29,7 +29,7 @@ Now that we have our broad clusters we now look for an algorithm to form cluster
 
 <br>
 
-<img width="282" alt="image" src="https://github.com/user-attachments/assets/46e8e79f-4e56-4188-9fb8-d3060e39c454"><img width="281" alt="image" src="https://github.com/user-attachments/assets/d53e8b3e-b273-4986-ad31-21c94a6da5d3">
+<img width="282" alt="image" src="https://github.com/user-attachments/assets/46e8e79f-4e56-4188-9fb8-d3060e39c454">  <img width="281" alt="image" src="https://github.com/user-attachments/assets/d53e8b3e-b273-4986-ad31-21c94a6da5d3">
 <br>
 HDBSCAN was chosen for this part of the project as its a better match for the needs. It is a hierarchial algorithm that makes use of Minimum Spanning Trees to form clusters.
 <br>
@@ -40,6 +40,7 @@ MST in HDBSCAN
 Next part of the project is to fine tune the parameters for the parameters for forming clusters with HDBSCAN. 
 <br>
 In this part we need to address 2 issues : 1)finding better ways to fine tune the parameters, and 2) fine tuning for different needs (Small Businesses and Big Businesses)
+<br>
 <br>
 1)Binary Search on a 2D grid
 

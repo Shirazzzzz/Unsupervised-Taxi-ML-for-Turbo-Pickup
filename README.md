@@ -52,14 +52,14 @@ A small business with just 30 cabs cannot afford to allocate its cab across 27 c
 for this.
 
 <br>
-https://github.com/user-attachments/assets/d29fc014-391c-4c6b-8799-bebaf063881d
+<!-- https://github.com/user-attachments/assets/d29fc014-391c-4c6b-8799-bebaf063881d -->
 
 Example: 16 cabs in North-East Delhi Region and 14 cabs in North-West Delhi Region.
 
 <br>
 A bigger business like uber on the other hand can afford to split lets say a cab force of 40k across 27 clusters.
 <br>
-https://github.com/user-attachments/assets/d53fa72e-4e82-4fdd-aa3e-146761a7675d
+<!-- https://github.com/user-attachments/assets/d53fa72e-4e82-4fdd-aa3e-146761a7675d -->
 <br>
 For each category: Weekly and Hourly Dynamic Plots were produced + Output was also logged for better readibility.
 

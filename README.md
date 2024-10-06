@@ -14,7 +14,10 @@ We apply different algoirthms onto our dataset and decide which one suits our ne
 
 The above image shows how k-means and density based algorithms treat the same dataset. Again, no cluster is inherently "bad", but the result produced by k-means is what we are looking for (when it comes to dividing the area into broad clusters).
 
-<img width="281" alt="image" src="https://github.com/user-attachments/assets/706fc81c-f098-4edf-beb1-793dc6e967f1"> <img width="295" alt="image" src="https://github.com/user-attachments/assets/23a88dfd-e433-45bf-96e7-8469ac0c13b2">
+
+  <img width="281" alt="image" src="https://github.com/user-attachments/assets/706fc81c-f098-4edf-beb1-793dc6e967f1"> <img width="295" alt="image" src="https://github.com/user-attachments/assets/23a88dfd-e433-45bf-96e7-8469ac0c13b2">
+
+  
 The graphs above show the elbow plot and silhoette score plot.
 The graphs suggest that the optimal number of k-means cluster = 2 ...
 But how is that insightful or of any use?
@@ -24,49 +27,55 @@ Thats why we look at the next best option which is 8. Therefore we divide the re
 
 Now that we have our broad clusters we now look for an algorithm to form clusters within each broad cluster. Refering back to the discussion on types of clusters, i realised that a density-based algorithm matches my needs ... but which one ?
 
+<br>
+
 <img width="282" alt="image" src="https://github.com/user-attachments/assets/46e8e79f-4e56-4188-9fb8-d3060e39c454"><img width="281" alt="image" src="https://github.com/user-attachments/assets/d53e8b3e-b273-4986-ad31-21c94a6da5d3">
+<br>
 HDBSCAN was chosen for this part of the project as its a better match for the needs. It is a hierarchial algorithm that makes use of Minimum Spanning Trees to form clusters.
 <img width="413" alt="image" src="https://github.com/user-attachments/assets/b7b80ee4-fd16-48c8-8fef-ca7ea5ba94a6">
+<br>
 MST in HDBSCAN
 
 Next part of the project is to fine tune the parameters for the parameters for forming clusters with HDBSCAN. 
+<br>
 In this part we need to address 2 issues : 1)finding better ways to fine tune the parameters, and 2) fine tuning for different needs (Small Businesses and Big Businesses)
-
+<br>
 1)Binary Search on a 2D grid
 
 Fine tuning min_samples and min_size for HDBSCAN on such a large dataset was computationally expensive, so i couldnt just go about trying different values as each run took around 30 minutes. So i figured out the ranges for the both the parameters in which the most optimal clusters would lie and performed a binary search on both of them to get the most optimal clusters with log(R) attempts for each (R = range), thereby making the process efficient.
-
+<br>
 2) Different types of business have different needs
 
 A small business with just 30 cabs cannot afford to allocate its cab across 27 clusters as that wont be fruitful (approx. 1 cab per cluster), so the pickup coordinates must be rounded off to a certain degree to form bigger and more general clusters, and then i picked ONLY 2 of these bigger clusters. Parameters must be manually fine tuned 
 for this.
 
-
+<br>
 https://github.com/user-attachments/assets/d29fc014-391c-4c6b-8799-bebaf063881d
 
 Example: 16 cabs in North-East Delhi Region and 14 cabs in North-West Delhi Region.
 
-
+<br>
 A bigger business like uber on the other hand can afford to split lets say a cab force of 40k across 27 clusters.
-
+<br>
 https://github.com/user-attachments/assets/d53fa72e-4e82-4fdd-aa3e-146761a7675d
-
+<br>
 For each category: Weekly and Hourly Dynamic Plots were produced + Output was also logged for better readibility.
 
 Example:
+<br>
 <img width="235" alt="image" src="https://github.com/user-attachments/assets/8ab17179-b036-4880-90ed-09ca6ed5fd82"> <img width="181" alt="image" src="https://github.com/user-attachments/assets/34c6c113-a5b6-4eec-9ec5-ec739d365a50">
-
+<br>
 I was also able to achieve an average cluster score of 1 (perfect) for both small and big businesses.
-
+<br>
 Image 1 = Big business, Image 2 = Small Business
-
+<br>
 <img width="225" alt="big business validation" src="https://github.com/user-attachments/assets/259a41ec-ebce-4714-ba0f-b1e3eb2ef5b1"> 
 <img width="218" alt="small business validation" src="https://github.com/user-attachments/assets/e5b05750-f6c3-432f-bfa7-f4862598b8a4">
-
+<br>
 
 Ive described some other insights for the data below:
-
-
+<br>
+<br>
 
 .............................................
 Playing with Data 1 (and Visualization) [requires lat/lon type dataset] 

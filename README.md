@@ -32,6 +32,7 @@ Now that we have our broad clusters we now look for an algorithm to form cluster
 <img width="282" alt="image" src="https://github.com/user-attachments/assets/46e8e79f-4e56-4188-9fb8-d3060e39c454"><img width="281" alt="image" src="https://github.com/user-attachments/assets/d53e8b3e-b273-4986-ad31-21c94a6da5d3">
 <br>
 HDBSCAN was chosen for this part of the project as its a better match for the needs. It is a hierarchial algorithm that makes use of Minimum Spanning Trees to form clusters.
+<br>
 <img width="413" alt="image" src="https://github.com/user-attachments/assets/b7b80ee4-fd16-48c8-8fef-ca7ea5ba94a6">
 <br>
 MST in HDBSCAN
@@ -65,15 +66,17 @@ Example:
 <br>
 <img width="235" alt="image" src="https://github.com/user-attachments/assets/8ab17179-b036-4880-90ed-09ca6ed5fd82"> <img width="181" alt="image" src="https://github.com/user-attachments/assets/34c6c113-a5b6-4eec-9ec5-ec739d365a50">
 <br>
+<br>
 I was also able to achieve an average cluster score of 1 (perfect) for both small and big businesses.
 <br>
-Image 1 = Big business, Image 2 = Small Business
+Image 1 = Big business                             Image 2 = Small Business
+<br>
 <br>
 <img width="225" alt="big business validation" src="https://github.com/user-attachments/assets/259a41ec-ebce-4714-ba0f-b1e3eb2ef5b1"> 
 <img width="218" alt="small business validation" src="https://github.com/user-attachments/assets/e5b05750-f6c3-432f-bfa7-f4862598b8a4">
 <br>
 
-Ive described some other insights for the data below:
+Here ive described some other insights from the data:
 <br>
 <br>
 

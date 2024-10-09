@@ -1,14 +1,4 @@
-import numpy as np
-import pandas as pd
-import plotly.express as px
-from sklearn.preprocessing import StandardScaler
-from sklearn.cluster import KMeans
-from sklearn.cluster import DBSCAN
-from sklearn.metrics import silhouette_score
-from geopy.geocoders import Nominatim
-
-pd.options.display.max_columns = None
-pd.set_option('display.max_rows', 500)
+##RESEARCH COLLABORATORS & RECRUITERS CAN MAIL ME AT ssz.cprog@gmail.com FOR ALL 20 CODE FILES, SETUP & DOCUMENTATION
 
 df = pd.read_csv("cab_data.csv")
 

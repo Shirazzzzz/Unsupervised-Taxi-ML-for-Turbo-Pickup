@@ -31,10 +31,6 @@ plt.show()  # Img_8
 together = db.groupby(['weekday', 'hour'], as_index=False).size()
 print(together)  # Img_9
 
-plt.figure(figsize=(10, 6))
-sns.pointplot(x='hour', y='size', hue='weekday', data=together)
-plt.show()  # Img_10
-
 final = pd.read_csv("cab_data.csv")
 rush = final.groupby(['Lat', 'Lon'], as_index=False).size()
 base_map = folium.Map(location=[rush['Lat'].mean(), rush['Lon'].mean()], zoom_start=8)

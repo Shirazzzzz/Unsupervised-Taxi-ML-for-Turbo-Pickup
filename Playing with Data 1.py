@@ -1,8 +1,4 @@
-import seaborn as sns
-import matplotlib.pyplot as plt
-import pandas as pd
-import folium
-from folium.plugins import HeatMap
+#RESEARCH COLLABORATORS & RECRUITERS CAN MAIL ME AT ssz.cprog@gmail.com FOR ALL 20 CODE FILES, SETUP & DOCUMENTATION
 
 db = pd.read_csv("cab_data.csv")
 print(db)  # Img_1
@@ -44,6 +40,3 @@ rush = final.groupby(['Lat', 'Lon'], as_index=False).size()
 base_map = folium.Map(location=[rush['Lat'].mean(), rush['Lon'].mean()], zoom_start=8)
 heat_data = [[row['Lat'], row['Lon'], row['size']] for index, row in rush.iterrows()]
 
-HeatMap(heat_data).add_to(base_map)
-
-base_map.save('heatmap.html')  # Img_11
